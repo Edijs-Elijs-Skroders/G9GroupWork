@@ -30,12 +30,15 @@ useEffect(() => {
 function HomeScreen({navigation}) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'top' }}>
-      <Text>Sākums</Text>  
+      <Text style={{fontSize:25}}>Sākums</Text>  
       <Button 
         title = "Apskatīt ziņas"
-        onPress={() => navigation.navigate('Zinas')} 
+        onPress={() => navigation.navigate('Zinas')}  
       />
-      <VardaDienas></VardaDienas>
+    <Text style={{fontSize:25}}>{'Šodien vārda dienas svin: '}{'*vēl tiks implementēts*'}</Text>
+    <Button 
+        title = "Dienas joks"
+        onPress={() => navigation.navigate('DienasJoks')}/>
     </View>
   );
 }
@@ -97,6 +100,20 @@ function AprakstsScreen({navigation,route}) {
   );
 }
 
+function DienasScreen({navigation}) {
+
+  return (
+    <View style={{margin:10, alignItems: 'center', justifyContent: 'center'}}>  
+      <Text style={{fontSize: 24}}>{'Dienas joks: '}</Text>
+      <Text style={{fontSize: 14}}>{'mēs pabeigsim grupas darbu laikā'}</Text>
+      <Button 
+        title = "Atgriezties uz sākumu"
+        onPress={() => navigation.navigate('Home')} 
+      />
+    </View>
+  );
+}
+
 return (
       <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -107,7 +124,9 @@ return (
           component={ZinasScreen}
           options = {{title: 'Ziņas'}}/>
         <Stack.Screen name="ZinasApraksts"
-          component={AprakstsScreen}/>  
+          component={AprakstsScreen}/>
+        <Stack.Screen name="DienasJoks"
+          component={DienasScreen}/> 
       </Stack.Navigator>
     </NavigationContainer>
   );
