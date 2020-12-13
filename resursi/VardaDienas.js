@@ -1,34 +1,30 @@
-import React, {useState, useEffect} from 'react';
-import { ActivityIndicator, View, FlatList, Button } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { ActivityIndicator, View, FlatList, Text } from 'react-native';
 
 export default function VardaDienas({ navigation }) {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    
+
     fetch(
-'https://api.abalin.net/today?country=lv'
+      'https://api.abalin.net/today?country=lv'
     )
-      .then((response) => response.json() )
-      .then((json) => (json.data))
+      .then((response) => response.json())
+      .then(function (json) {
+        var data = json.data.namedays.lv;
+        var result = data != null ? data : 'No data available';
+        setData(result)
+      })
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
-      
+
   }, []);
-  
+
   return (
     <View style={{ flex: 1, padding: 24 }}>
-      {isLoading ? <ActivityIndicator/> : (
-        <FlatList
-          data={data}
-          keyExtractor={({ id }, index) => id}
-          renderItem={({ item }) => (
-            <View style={{marginTop: 7}}>
-              <Text>{item.lv}</Text>
-            </View>
-          )}
-        />
+      {isLoading ? <ActivityIndicator /> : (
+        <Text>{"Šodien vārda dienu svin: "}{data}</Text>
       )}
     </View>
   );

@@ -38,6 +38,7 @@ function HomeScreen({navigation}) {
     <Button 
         title = "Dienas joks"
         onPress={() => navigation.navigate('DienasJoks')}/>
+    <VardaDienas></VardaDienas>
     </View>
   );
 }
