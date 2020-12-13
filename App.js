@@ -5,7 +5,6 @@ import { FlatList, ActivityIndicator, Button, StyleSheet, Text, View } from 'rea
 import { NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import VardaDienas from './resursi/VardaDienas'; //iesākts veidot vārda dienas;
-import nameday from "nameday-api";
 
 
 export default function App() {
@@ -23,6 +22,7 @@ useEffect(() => {
     .then((json) => setData(json.articles))
     .catch((error) => console.error(error))
     .finally(() => setLoading(false));
+    
 }, []);
 
 //jāpabeidz nākamajā funkcijā VardaDienas .js failā
@@ -35,7 +35,6 @@ function HomeScreen({navigation}) {
         title = "Apskatīt ziņas"
         onPress={() => navigation.navigate('Zinas')}  
       />
-    <Text style={{fontSize:25}}>{'Šodien vārda dienas svin: '}{'*vēl tiks implementēts*'}</Text>
     <Button 
         title = "Dienas joks"
         onPress={() => navigation.navigate('DienasJoks')}/>
