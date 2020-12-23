@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ActivityIndicator, View, FlatList, Text } from 'react-native';
+import { ActivityIndicator, View, FlatList, Text, StyleSheet } from 'react-native';
 
-export default function VardaDienas({ navigation }) {
+export default function VardaDienas() {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -29,3 +29,4 @@ export default function VardaDienas({ navigation }) {
     </View>
   );
 };
+
