@@ -144,9 +144,7 @@ function ZinasScreen({navigation}) {
 }
 
 function AprakstsScreen({navigation,route}) {
-
   const { title, description, publishedAt, url} = route.params;
-  
     return (
         <View style={styles.containerAZ}>
             <View style={styles.rectAZ}>
@@ -176,7 +174,6 @@ function AprakstsScreen({navigation,route}) {
 }
 
 function DienasScreen({navigation}) {
-
   return (
             <View style={styles.containerDJ}>
                 <View style={styles.rectStackRowDJ}>
@@ -189,7 +186,8 @@ function DienasScreen({navigation}) {
                     </View>
                 </View>
                 <View style={styles.rect2DJ}>
-                    <Text style={styles.nosaukumsDJ}>Joks: mēs laicīgi pabeigsim grupas darbu! </Text>
+              <Text style={styles.nosaukumsDJ}>Joks: Pašizolācijas piektā diena, aprunājos ar zirnekli.
+                                                     Tīri sakarīgs džeks, esot tīkla dizaineris! </Text>
           </View>
           <TouchableOpacity style={styles.materialButtonGreyDJ}
               onPress={() => navigation.navigate('Home')}>
@@ -200,23 +198,23 @@ function DienasScreen({navigation}) {
         );
 }
 
-return (
-      <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" 
-          component={HomeScreen} 
-          options = {{title: 'DAG'}}/>
-        <Stack.Screen name="Zinas"
-          component={ZinasScreen}
-          options = {{title: 'Ziņas'}}/>
-        <Stack.Screen name="ZinasApraksts"
-          component={AprakstsScreen}/>
-        <Stack.Screen name="DienasJoks"
-          component={DienasScreen}/> 
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
+    return (
+          <NavigationContainer>
+          <Stack.Navigator initialRouteName="Home">
+            <Stack.Screen name="Home" 
+              component={HomeScreen} 
+              options = {{title: 'DAG'}}/>
+            <Stack.Screen name="Zinas"
+              component={ZinasScreen}
+              options = {{title: 'Ziņas'}}/>
+            <Stack.Screen name="ZinasApraksts"
+              component={AprakstsScreen}/>
+            <Stack.Screen name="DienasJoks"
+              component={DienasScreen}/> 
+          </Stack.Navigator>
+        </NavigationContainer>
+      );
+    }
 
 const styles = StyleSheet.create({
     container: {
